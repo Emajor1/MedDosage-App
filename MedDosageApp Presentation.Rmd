@@ -1,0 +1,87 @@
+---
+title: "Medication Dosage Calculator"
+author: "Evans Codjoe"
+date: "`r Sys.Date()`"
+output:
+  html_document: default
+  word_document: default
+  pdf_document: default
+---
+
+
+# Slide 1: MedDosage App
+
+**Welcome to the Medication Dosage Calculator**  
+**Created on `r Sys.Date()`**
+
+---
+
+# Slide 2: What the App Does
+
+**- Accepts weight in pounds**
+
+**- Adjusts for age, gender, frequency, and concentration**
+
+**- Calculates total daily dose, dose per administration, and volume per dose**
+
+**- Displays results and a visual bar chart**
+
+---
+
+# Slide 3: Why It Matters
+
+**- Clinically relevant and beginner-friendly**
+
+**- Helps users understand weight-based dosing**
+
+**- Can be expanded for pediatric logic or max dose limits**
+
+**- Useful for students, clinicians, and caregivers**
+
+---
+
+# Slide 4: Embedded R Code
+
+```{r}
+# Sample dosage calculation
+weight_lbs <- 154
+weight_kg <- weight_lbs * 0.453592
+dose_mg <- weight_kg * 15  # Paracetamol
+dose_mg
+
+
+## Sample Dosage vs. Weight Plot
+weight_lbs <- seq(50, 250, by = 10)
+weight_kg <- weight_lbs * 0.453592
+dose_mg <- weight_kg * 15  # Paracetamol
+
+plot(weight_lbs, dose_mg, type = "l", col = "blue", lwd = 2,
+     xlab = "Weight (lbs)", ylab = "Dosage (mg)",
+     main = "Paracetamol Dosage by Weight")
+
+
+
+## Interactive Dosage Plot
+library(plotly)
+plot_ly(x = weight_lbs, y = dose_mg, type = 'scatter', mode = 'lines',
+        line = list(color = 'green')) %>%
+  layout(title = "Interactive Dosage Curve",
+         xaxis = list(title = "Weight (lbs)"),
+         yaxis = list(title = "Dosage (mg)"))
+
+```
+
+---
+
+# Slide 5: Try This App Yourself
+
+**Ready to explore the Medication Dosage Calculator? Use the links below to interact with the app, view the source code, and revisit this presentation.**
+
+🌐 Live App: https://emajor.shinyapps.io/MedDosageApp/
+
+💻 GitHub Repo: https://github.com/Emajor1/MedDosage-App
+
+
+**Thank you for viewing! This app was designed to make clinical dosing safer, simpler, and more accessibl**
+
+
